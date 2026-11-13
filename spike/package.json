@@ -1,0 +1,24 @@
+{
+  "name": "spike",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^6.3.5"
+  },
+  "dependencies": {
+    "@deck.gl/core": "^9.4.1",
+    "@deck.gl/layers": "^9.4.1",
+    "@deck.gl/mapbox": "^9.4.1",
+    "globe.gl": "^2.41.4",
+    "maplibre-gl": "^5.9.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2"
+  }
+}

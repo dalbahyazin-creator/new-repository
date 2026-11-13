@@ -1,0 +1,70 @@
+# World Impact markets (draft, phase 0). Add or remove entries freely; the pipeline reads this file.
+# Fields:
+#   supplier / buyer: the metric used for each side's world share
+#     (exports | production | reserves | imports | consumption | stock | flow)
+#   source: an id from docs/phase-0/SOURCES.md
+#   hs: the HS codes summed when the source is trade data
+#   proxy: true means the market uses a stand-in measure, which the UI labels "proxy"
+#   enabled: false keeps a market listed in this file but leaves it out of every score
+defaults: { year_policy: latest_common, min_coverage: 0.8 }
+
+families:
+  energy:
+    crude_oil:        { supplier: exports,    buyer: imports, source: baci, hs: ["2709"], alt_source: ei }
+    natural_gas_lng:  { supplier: exports,    buyer: imports, source: baci, hs: ["271111", "271121"], alt_source: ei }
+    coal:             { supplier: exports,    buyer: imports, source: baci, hs: ["2701"], alt_source: ei }
+    uranium:          { supplier: exports,    buyer: imports, source: baci, hs: ["2612"], proxy: true, alt_source: nea_redbook }
+    refined_products: { supplier: exports,    buyer: imports, source: baci, hs: ["2710"] }
+  critical_minerals:
+    lithium:          { supplier: production, buyer: imports, source: usgs_mcs, buyer_source: baci, hs: ["283691", "282520"] }
+    cobalt:           { supplier: production, buyer: imports, source: usgs_mcs, buyer_source: baci, hs: ["2605", "8105"] }
+    nickel:           { supplier: production, buyer: imports, source: usgs_mcs, buyer_source: baci, hs: ["2604", "7502"] }
+    copper:           { supplier: production, buyer: imports, source: usgs_mcs, buyer_source: baci, hs: ["2603", "7403"] }
+    rare_earths:      { supplier: production, buyer: imports, source: usgs_mcs, buyer_source: baci, hs: ["280530", "2846"] }
+    graphite:         { supplier: production, buyer: imports, source: usgs_mcs, buyer_source: baci, hs: ["2504", "380110"] }
+    gallium_germanium:{ supplier: production, buyer: imports, source: usgs_mcs, buyer_source: baci, hs: ["811292", "811299"], note: "refinery output" }
+  food_agriculture:
+    wheat:            { supplier: exports,    buyer: imports, source: faostat, alt: production }
+    rice:             { supplier: exports,    buyer: imports, source: faostat }
+    maize:            { supplier: exports,    buyer: imports, source: faostat }
+    soybeans:         { supplier: exports,    buyer: imports, source: faostat }
+    palm_oil:         { supplier: exports,    buyer: imports, source: faostat }
+    fertilizer_potash:    { supplier: exports, buyer: imports, source: baci, hs: ["3104"] }
+    fertilizer_phosphate: { supplier: exports, buyer: imports, source: baci, hs: ["3103", "2510"] }
+    fertilizer_nitrogen:  { supplier: exports, buyer: imports, source: baci, hs: ["3102"] }
+  manufacturing_tech:
+    semiconductors:   { supplier: exports,    buyer: imports, source: baci, hs: ["8541", "8542"], proxy: true }
+    electronics:      { supplier: exports,    buyer: imports, source: baci, hs: ["8471", "8517", "8528"] }
+    vehicles_evs:     { supplier: exports,    buyer: imports, source: baci, hs: ["8703"] }
+    batteries:        { supplier: exports,    buyer: imports, source: baci, hs: ["850760"] }
+    machinery:        { supplier: exports,    buyer: imports, source: baci, hs_chapter: ["84"] }
+    pharmaceuticals:  { supplier: exports,    buyer: imports, source: baci, hs_chapter: ["30"] }
+    textiles:         { supplier: exports,    buyer: imports, source: baci, hs_chapter: ["50-63"] }
+  finance_currency:
+    reserve_currency: { supplier: stock,      source: imf_cofer, note: "currency to issuer mapping; euro split by GDP" }
+    fx_turnover:      { supplier: flow,       source: bis_triennial }
+    outward_fdi:      { supplier: stock,      buyer: stock, source: unctad, buyer_metric: inward_fdi }
+    portfolio_investment: { supplier: stock,  source: imf_cpis }
+    sovereign_wealth: { supplier: stock,      source: manual_swf_list, enabled: false, note: "awaiting decision" }
+  logistics:
+    container_ports:  { supplier: flow,       source: unctad, metric: teu }
+    merchant_fleet:   { supplier: stock,      source: unctad, metric: dwt_by_owner }
+    chokepoint_exposure: { exposure_only: true, source: imf_portwatch }
+  consumer_demand:
+    world_imports:    { buyer: imports,       source: wdi }
+    household_consumption: { buyer: consumption, source: wdi, indicator: NE.CON.PRVT.CD }
+  people:
+    remittances:      { supplier: flow,       buyer: flow, source: wdi, supplier_indicator: BM.TRF.PWKR.CD.DT, buyer_indicator: BX.TRF.PWKR.CD.DT }
+    outbound_tourism: { buyer: flow,          source: untourism, alt_source: owid }
+  security:
+    military_expenditure: { supplier: flow,   source: sipri_milex }
+    arms_exports:     { supplier: exports,    buyer: imports, source: sipri_tiv }
+  climate:
+    co2_emissions:    { supplier: flow,       source: owid_co2, note: "share of global CO2" }
+    clean_tech_mfg:   { supplier: exports,    buyer: imports, source: baci, hs: ["854142", "854143", "850760", "870380"], proxy: true }
+
+tiers:   # Configurable thresholds on the 0–100 score. Calibrated in phase 4.
+  systemic: 60
+  major: 30
+  regional: 10
+  niche: 0
