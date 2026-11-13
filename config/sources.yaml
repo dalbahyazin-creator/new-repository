@@ -1,0 +1,134 @@
+# Registry of every data source the pipeline uses. Every stored number must cite one of these source ids.
+# license_status values:
+#   open        fine to redistribute with attribution
+#   restricted  usable for this private build; republishing needs the publisher's permission
+#   paid        not used
+#   curated     values compiled by hand from cited official documents
+# The dashboard is private (owner decision, phase 0), so restricted sources are allowed.
+sources:
+  wb_wdi:
+    name: World Development Indicators
+    publisher: World Bank
+    url: https://api.worldbank.org/v2/
+    license: CC BY 4.0
+    license_status: open
+  wb_class:
+    name: Country and lending groups (income classification)
+    publisher: World Bank
+    url: https://api.worldbank.org/v2/country
+    license: CC BY 4.0
+    license_status: open
+  un_m49:
+    name: UN M49 standard country or area codes (via datasets/country-codes)
+    publisher: UN Statistics Division
+    url: https://raw.githubusercontent.com/datasets/country-codes/main/data/country-codes.csv
+    license: ODC-PDDL (compilation); M49 is a UN standard
+    license_status: open
+  natural_earth:
+    name: Natural Earth Admin-0 countries and breakaway/disputed areas
+    publisher: Natural Earth
+    url: https://www.naturalearthdata.com/
+    license: Public domain
+    license_status: open
+  blocs_curated:
+    name: Bloc memberships compiled from official member lists
+    publisher: World Atlas (curated)
+    url: config/blocs.yaml
+    license: Facts compiled from cited official pages
+    license_status: curated
+  baci:
+    name: CEPII BACI bilateral trade (HS6)
+    publisher: CEPII
+    url: https://www.cepii.fr/CEPII/en/bdd_modele/bdd_modele_item.asp?id=37
+    license: Etalab Open Licence 2.0
+    license_status: open
+  usgs_mcs:
+    name: Mineral Commodity Summaries 2026
+    publisher: US Geological Survey
+    url: https://www.usgs.gov/data/mineral-commodity-summaries-2026-data-release
+    license: Public domain
+    license_status: open
+  ei_review:
+    name: Statistical Review of World Energy 2026
+    publisher: Energy Institute
+    url: https://www.energyinst.org/statistical-review
+    license: All rights reserved; private use
+    license_status: restricted
+  faostat:
+    name: FAOSTAT
+    publisher: FAO
+    url: https://www.fao.org/faostat/
+    license: CC BY 4.0
+    license_status: open
+  imf_cofer:
+    name: Currency Composition of Official Foreign Exchange Reserves
+    publisher: IMF
+    url: https://data.imf.org/
+    license: IMF terms; private use
+    license_status: restricted
+  imf_cpis:
+    name: Coordinated Portfolio Investment Survey
+    publisher: IMF
+    url: https://data.imf.org/
+    license: IMF terms; private use
+    license_status: restricted
+  imf_portwatch:
+    name: PortWatch
+    publisher: IMF / University of Oxford
+    url: https://portwatch.imf.org/
+    license: IMF terms; private use
+    license_status: restricted
+  bis_triennial:
+    name: Triennial Central Bank Survey 2025
+    publisher: BIS
+    url: https://data.bis.org/
+    license: BIS terms; private use
+    license_status: restricted
+  unctad:
+    name: UNCTADstat
+    publisher: UNCTAD
+    url: https://unctadstat.unctad.org/
+    license: CC BY 3.0 IGO
+    license_status: open
+  sipri_milex:
+    name: SIPRI Military Expenditure Database
+    publisher: SIPRI
+    url: https://www.sipri.org/databases/milex
+    license: SIPRI terms; private use
+    license_status: restricted
+  sipri_tiv:
+    name: SIPRI Arms Transfers Database
+    publisher: SIPRI
+    url: https://www.sipri.org/databases/armstransfers
+    license: SIPRI terms; private use
+    license_status: restricted
+  owid_co2:
+    name: CO2 and greenhouse gas emissions (Global Carbon Budget)
+    publisher: Our World in Data
+    url: https://github.com/owid/co2-data
+    license: CC BY 4.0
+    license_status: open
+  ember:
+    name: Ember electricity data
+    publisher: Ember
+    url: https://ember-energy.org/data/
+    license: CC BY 4.0
+    license_status: open
+  untourism:
+    name: Outbound tourism expenditure
+    publisher: UN Tourism
+    url: https://www.untourism.int/tourism-statistics
+    license: UN Tourism terms; private use
+    license_status: restricted
+  nea_redbook:
+    name: "Uranium: Resources, Production and Demand (Red Book)"
+    publisher: OECD-NEA / IAEA
+    url: https://oecd-nea.org/
+    license: OECD terms; private use
+    license_status: restricted
+  swf_curated:
+    name: Sovereign wealth fund assets compiled from official fund reports
+    publisher: World Atlas (curated)
+    url: config/sovereign_wealth.yaml
+    license: Facts compiled from cited official reports
+    license_status: curated

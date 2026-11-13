@@ -1,0 +1,16 @@
+# Indicators fetched from the World Bank WDI API, grouped into pillars.
+# This file only sets up the core pillar for phase 1. Phase 4 adds the remaining pillars and the impact sources.
+# Each pillar is written to its own data/out/pillars/<pillar>.json file so the web app can load pillars only when needed.
+wdi_years: [1990, 2026]
+indicators:
+  pop:          { code: SP.POP.TOTL,        pillar: core,     unit: persons,     label: Population }
+  gdp_usd:      { code: NY.GDP.MKTP.CD,     pillar: core,     unit: current USD, label: GDP (current US$) }
+  gdp_ppp:      { code: NY.GDP.MKTP.PP.CD,  pillar: core,     unit: current intl $, label: GDP, PPP }
+  gdp_pc:       { code: NY.GDP.PCAP.CD,     pillar: core,     unit: current USD, label: GDP per capita }
+  land_km2:     { code: AG.LND.TOTL.K2,     pillar: core,     unit: km2,         label: Land area }
+  exports_gs:   { code: NE.EXP.GNFS.CD,     pillar: trade,    unit: current USD, label: Exports of goods & services }
+  imports_gs:   { code: NE.IMP.GNFS.CD,     pillar: trade,    unit: current USD, label: Imports of goods & services }
+  hh_cons:      { code: NE.CON.PRVT.CD,     pillar: trade,    unit: current USD, label: Household consumption }
+  remit_in:     { code: BX.TRF.PWKR.CD.DT,  pillar: people,   unit: current USD, label: Remittances received }
+  remit_out:    { code: BM.TRF.PWKR.CD.DT,  pillar: people,   unit: current USD, label: Remittances paid }
+  milex_gdp:    { code: MS.MIL.XPND.GD.ZS,  pillar: security, unit: "% of GDP",  label: Military expenditure (% GDP, SIPRI via WDI) }

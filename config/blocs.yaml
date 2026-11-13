@@ -1,0 +1,136 @@
+# Bloc memberships as of the as_of date below.
+# - members lists ISO3 codes. Countries can carry since / until years so the year slider shows past membership.
+# - Institutional members (the EU in the G20, for example) go in a note, not in members.
+# - Every bloc cites its official member page.
+# - Edit this file as memberships change, then rerun `make data`.
+as_of: "2026-11"
+blocs:
+  EU:
+    name: European Union
+    type: political-economic union
+    source: https://european-union.europa.eu/principles-countries-history/eu-countries_en
+    members: [AUT, BEL, BGR, HRV, CYP, CZE, DNK, EST, FIN, FRA, DEU, GRC, HUN, IRL, ITA, LVA, LTU, LUX, MLT, NLD, POL, PRT, ROU, SVK, SVN, ESP, SWE]
+    former: { GBR: { since: 1973, until: 2020 } }
+    since: { DNK: 1973, IRL: 1973, GRC: 1981, ESP: 1986, PRT: 1986, HRV: 2013, BGR: 2007, ROU: 2007, CYP: 2004, CZE: 2004, EST: 2004, HUN: 2004, LVA: 2004, LTU: 2004, MLT: 2004, POL: 2004, SVK: 2004, SVN: 2004, AUT: 1995, FIN: 1995, SWE: 1995 }
+  EA:
+    name: Euro area
+    type: monetary union
+    source: https://www.ecb.europa.eu/euro/intro/html/index.en.html
+    members: [AUT, BEL, BGR, HRV, CYP, EST, FIN, FRA, DEU, GRC, IRL, ITA, LVA, LTU, LUX, MLT, NLD, PRT, SVK, SVN, ESP]
+    since: { BGR: 2026, HRV: 2023, LTU: 2015, LVA: 2014, EST: 2011, SVK: 2009, CYP: 2008, MLT: 2008, SVN: 2007, GRC: 2001 }
+  G7:
+    name: Group of Seven
+    type: forum
+    source: https://www.g7italy.it/en/the-g7/
+    members: [CAN, FRA, DEU, ITA, JPN, GBR, USA]
+    note: The EU takes part as a non-enumerated member.
+  G20:
+    name: Group of Twenty
+    type: forum
+    source: https://g20.org/about-the-g20/
+    members: [ARG, AUS, BRA, CAN, CHN, FRA, DEU, IND, IDN, ITA, JPN, KOR, MEX, RUS, SAU, ZAF, TUR, GBR, USA]
+    note: The European Union and the African Union (member since 2023) are institutional members and are not listed as countries.
+  BRICS:
+    name: BRICS
+    type: forum
+    source: https://brics.br/en/about-brics
+    members: [BRA, RUS, IND, CHN, ZAF, EGY, ETH, IRN, ARE, IDN]
+    since: { ZAF: 2011, EGY: 2024, ETH: 2024, IRN: 2024, ARE: 2024, IDN: 2025 }
+    note: Saudi Arabia was invited in 2023 but has not confirmed membership, so it is excluded.
+  BRICS_PARTNERS:
+    name: BRICS partner countries
+    type: forum (partner tier)
+    source: https://brics.br/en/about-brics
+    members: [BLR, BOL, KAZ, CUB, MYS, THA, UGA, UZB, NGA, VNM]
+    since: { BLR: 2025, BOL: 2025, KAZ: 2025, CUB: 2025, MYS: 2025, THA: 2025, UGA: 2025, UZB: 2025, NGA: 2025, VNM: 2025 }
+  OPEC:
+    name: Organization of the Petroleum Exporting Countries
+    type: commodity cartel
+    source: https://www.opec.org/opec_web/en/about_us/25.htm
+    members: [DZA, COG, GNQ, GAB, IRN, IRQ, KWT, LBY, NGA, SAU, ARE, VEN]
+    former: { AGO: { until: 2023 }, ECU: { until: 2019 }, QAT: { until: 2018 } }
+  OPEC_PLUS:
+    name: OPEC+ (Declaration of Cooperation)
+    type: commodity cartel
+    source: https://www.opec.org/opec_web/en/press_room/declaration-of-cooperation.htm
+    members: [DZA, COG, GNQ, GAB, IRN, IRQ, KWT, LBY, NGA, SAU, ARE, VEN, AZE, BHR, BRN, KAZ, MYS, MEX, OMN, RUS, SDN, SSD]
+    note: Brazil joined the Charter of Cooperation in 2025 but is not bound by production quotas, so it is excluded.
+  ASEAN:
+    name: Association of Southeast Asian Nations
+    type: regional organisation
+    source: https://asean.org/member-states/
+    members: [BRN, KHM, IDN, LAO, MYS, MMR, PHL, SGP, THA, VNM, TLS]
+    since: { TLS: 2025 }
+  AU:
+    name: African Union
+    type: regional organisation
+    source: https://au.int/en/member_states/countryprofiles2
+    members: [DZA, AGO, BEN, BWA, BFA, BDI, CPV, CMR, CAF, TCD, COM, COG, COD, CIV, DJI, EGY, GNQ, ERI, SWZ, ETH, GAB, GMB, GHA, GIN, GNB, KEN, LSO, LBR, LBY, MDG, MWI, MLI, MRT, MUS, MAR, MOZ, NAM, NER, NGA, RWA, ESH, STP, SEN, SYC, SLE, SOM, ZAF, SSD, SDN, TZA, TGO, TUN, UGA, ZMB, ZWE]
+    note: Some members are suspended after unconstitutional changes of government (as of 2026, Mali, Burkina Faso, Niger, Guinea and Sudan); they remain members. Western Sahara appears as the Sahrawi Republic (ESH).
+  ECOWAS:
+    name: Economic Community of West African States
+    type: regional economic community
+    source: https://ecowas.int/member-states/
+    members: [BEN, CPV, CIV, GMB, GHA, GIN, GNB, LBR, NGA, SEN, SLE, TGO]
+    former: { MLI: { until: 2025 }, BFA: { until: 2025 }, NER: { until: 2025 } }
+  NATO:
+    name: North Atlantic Treaty Organization
+    type: military alliance
+    source: https://www.nato.int/cps/en/natohq/topics_52044.htm
+    members: [ALB, BEL, BGR, CAN, HRV, CZE, DNK, EST, FIN, FRA, DEU, GRC, HUN, ISL, ITA, LVA, LTU, LUX, MNE, NLD, MKD, NOR, POL, PRT, ROU, SVK, SVN, ESP, SWE, TUR, GBR, USA]
+    since: { SWE: 2024, FIN: 2023, MKD: 2020, MNE: 2017 }
+  OECD:
+    name: Organisation for Economic Co-operation and Development
+    type: intergovernmental
+    source: https://www.oecd.org/en/about/members-partners.html
+    members: [AUS, AUT, BEL, CAN, CHL, COL, CRI, CZE, DNK, EST, FIN, FRA, DEU, GRC, HUN, ISL, IRL, ISR, ITA, JPN, KOR, LVA, LTU, LUX, MEX, NLD, NZL, NOR, POL, PRT, SVK, SVN, ESP, SWE, CHE, TUR, GBR, USA]
+    since: { CRI: 2021, COL: 2020, LTU: 2018, LVA: 2016 }
+  GCC:
+    name: Gulf Cooperation Council
+    type: regional organisation
+    source: https://www.gcc-sg.org/en/
+    members: [BHR, KWT, OMN, QAT, SAU, ARE]
+  MERCOSUR:
+    name: Mercosur
+    type: customs union
+    source: https://www.mercosur.int/en/about-mercosur/mercosur-countries/
+    members: [ARG, BRA, PRY, URY, BOL]
+    since: { BOL: 2024 }
+    note: Venezuela is suspended (since 2016) and is excluded. Bolivia became a full member in 2024 and is still adopting the bloc's rules.
+  USMCA:
+    name: United States–Mexico–Canada Agreement
+    type: free trade agreement
+    source: https://ustr.gov/trade-agreements/free-trade-agreements/united-states-mexico-canada-agreement
+    members: [USA, MEX, CAN]
+  SCO:
+    name: Shanghai Cooperation Organisation
+    type: security-economic organisation
+    source: https://eng.sectsco.org/
+    members: [CHN, IND, KAZ, KGZ, PAK, RUS, TJK, UZB, IRN, BLR]
+    since: { BLR: 2024, IRN: 2023, IND: 2017, PAK: 2017 }
+  CPTPP:
+    name: Comprehensive and Progressive Agreement for Trans-Pacific Partnership
+    type: free trade agreement
+    source: https://www.dfat.gov.au/trade/agreements/in-force/cptpp
+    members: [AUS, BRN, CAN, CHL, JPN, MYS, MEX, NZL, PER, SGP, VNM, GBR]
+    since: { GBR: 2024 }
+  RCEP:
+    name: Regional Comprehensive Economic Partnership
+    type: free trade agreement
+    source: https://rcepsec.org/
+    members: [BRN, KHM, IDN, LAO, MYS, MMR, PHL, SGP, THA, VNM, AUS, CHN, JPN, KOR, NZL]
+  QUAD:
+    name: Quadrilateral Security Dialogue
+    type: security dialogue
+    source: https://www.state.gov/the-quad/
+    members: [AUS, IND, JPN, USA]
+  EAEU:
+    name: Eurasian Economic Union
+    type: economic union
+    source: https://eaeunion.org/
+    members: [ARM, BLR, KAZ, KGZ, RUS]
+  ARAB_LEAGUE:
+    name: League of Arab States
+    type: regional organisation
+    source: http://www.leagueofarabstates.net/
+    members: [DZA, BHR, COM, DJI, EGY, IRQ, JOR, KWT, LBN, LBY, MRT, MAR, OMN, PSE, QAT, SAU, SOM, SDN, SYR, TUN, ARE, YEM]

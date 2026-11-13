@@ -41,6 +41,6 @@
 | Bilateral remittances | KNOMAD has closed; its last bilateral matrix is 2021. | Use WDI totals (paid and received) for scoring, and show no remittance arcs. |
 | Uranium | The Red Book's licence is unclear. | Use BACI HS 2612 trade as a proxy until NEA confirms. |
 
-## Licensing decisions I need from you
-1. **Is the dashboard public, private, or commercial?** If it's private or non-commercial, the ⚠️ sources (EI, SIPRI, BIS, IMF) are probably fine to use with attribution. If it will be public or commercial, I'll email EI, SIPRI and the IMF for permission and use the ✅ fallbacks until they reply.
-2. **Sovereign wealth:** use the static list from public annual reports, or drop the metric?
+## Licensing decisions (resolved 2026-11-13)
+1. **The dashboard is private, for a single user.** EI, SIPRI, BIS, IMF (COFER, CPIS, PortWatch), UN Tourism and the NEA Red Book are therefore **primary sources**, cited on every value. If the dashboard is ever published, `license_status: restricted` in `config/sources.yaml` marks exactly which data must be swapped out or cleared first.
+2. **Sovereign wealth:** build a curated dataset in `config/sovereign_wealth.yaml`. Each fund entry cites its own annual report, with IFSWF and reputable trackers used as cross-checks.

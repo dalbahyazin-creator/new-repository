@@ -1,6 +1,10 @@
 # World Atlas with World Impact: phase 0 plan
 
-Status: **waiting for your approval.** Nothing past phase 0 will start until you approve.
+Status: **approved 2026-11-13.** Decisions:
+- **Audience:** private, single user. All ⚠️ restricted sources are allowed, with attribution.
+- **Sovereign wealth:** build a full curated dataset from official fund reports and reputable trackers.
+- **Deploy target:** deferred.
+- **Default supplier/buyer balance α:** set to **0.6**, reasoned below.
 
 Phase 0 deliverables:
 - This plan.
@@ -39,7 +43,8 @@ For market *m*, country *c* and side *k* ∈ {supplier, buyer}, where *x* is tha
 1. **Share:** `s(c,m,k) = x(c,m,k) / Σ_c x(c,m,k)`. Shares run from 0 to 1, and the world total is computed over the countries that have data.
 2. **Concentration:** `HHI(m) = Σ_c s(c,m,supplier)²`, between 0 and 1.
 3. **Systemic weight:** `W(m) = size_share(m) × HHI(m)`, where `size_share(m) = size(m) / Σ size`. Size is world trade or production value in USD. The final weight is then `w(m) = u(m)·W(m) / Σ u·W`, where `u(m)` is the market-weight slider (default 1).
-4. **Country impact:** `I(c) = Σ_m w(m) · [ α·s(c,m,supplier) + (1−α)·s(c,m,buyer) ]`. α is the supplier/buyer slider (default 0.5; 1 means supplier side only).
+4. **Country impact:** `I(c) = Σ_m w(m) · [ α·s(c,m,supplier) + (1−α)·s(c,m,buyer) ]`. α is the supplier/buyer slider (default **0.6**; 1 means supplier side only).
+   *Why 0.6:* supply-side concentration is the main way one country can move a world price (export bans, OPEC cuts, mineral export controls), so supply leads. Buyer power still moves prices: China in iron ore and soybeans, for example, or the EU in LNG. Weighting the buyer side at 0.4 keeps that visible without letting large importers outrank the suppliers that set prices.
 5. **Score from 0 to 100:** `Score(c) = 100 · sqrt( I(c) / max_c I(c) )`. The square root spreads out the middle of the range, which share data otherwise bunches near zero. Both the transform and the anchor are configurable.
 6. **Tier:** Systemic, Major, Regional or Niche, using the thresholds in `markets.yaml` (default 60/30/10). I'll calibrate them in phase 4 by checking that the Systemic tier is small (about 5–10 countries) and makes sense.
 7. **Exposure (the reverse view):** `E(c,m) = import_dependence(c,m) × HHI of c's own suppliers for m`. Import dependence is imports ÷ (production + imports − exports), capped to the range 0–1. Where production data is missing, imports ÷ consumption is used instead.
